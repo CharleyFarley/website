@@ -285,6 +285,9 @@ function social_setup(){
       xfbml      : true,
       version    : 'v2.4'
     });
+    FB.Event.subscribe('edge.create', function(targetUrl) {
+      ga('send', 'social', 'facebook', 'like', targetUrl);
+    });
   };
 
   (function(d, s, id){
@@ -303,4 +306,7 @@ function social_setup(){
       href: href
     }, function(response){});
     });
+
+
+
 }
